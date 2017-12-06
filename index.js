@@ -1,12 +1,14 @@
 function dwarfRollCall(dwarves) {
   //output is a string...so define an empty string
+  var oldDwarves = Math.floor(dwarves.length / 2) + 1;
+  var newdwarves = dwarves.slice(oldDwarves);
   var result = '';
   //iterate through array to access array values
-  for (let i = 0; i < dwarves.length; i++) {
+  for (let i = 0; i < newDwarves.length; i++) {
     //values in dwarves = dwarves[i];
     //add values to result string
     //Template literal: (index + 1) (dwarves[i]) because index starts at 0;
-    result += `${i+1}. ${dwarves[i]} `
+    result += `${i+1}. ${newDwarves[i]} `
   }
   return result;
 }
@@ -61,7 +63,7 @@ function findTheCheese (foods) {
 //   return "no cheese!" 
 // }
 
-//Solution 2: Faster solution than O(n^2) I believe
+//Solution 2: Faster than O(n^2)?
 
 //Use indexOf method - returns -1 if no matching index is found between two arrays
 //returns index of a matching value of one array from another
@@ -72,7 +74,7 @@ function findTheCheese (foods) {
 //store the matching index to a variable
 //As soon as the matching index is found (if food index exists) aka NOT -1 then return the respective cheese
 //return "no cheese" when all comparisons are made
-var cheeses = ['cheddar', 'gouda', 'camembert'];
+var cheeses = ['cheddar', 'gouda', 'camembert', 'swiss'];
   for (let j = 0; j < cheeses.length; j++) {
     let foodIndex = foods.indexOf(cheeses[j]);
       if (foodIndex > -1) {
@@ -80,4 +82,17 @@ var cheeses = ['cheddar', 'gouda', 'camembert'];
       }
   }
   return "no cheese!";
+}
+
+var names = ['james', 'bobby', 'bill', 'will']
+//return only the names that start with b
+function namesWithB(names) {
+  var result = [];
+  for (let i = 0; i < names.length; i++) {
+      if(names[i][0] === "b") {
+        result.push(names[i]);
+      }
+    }
+  }
+  return result;
 }
